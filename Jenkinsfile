@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("node2/hellonode-jenkins")
+        app = docker.build("node2/hellonode-jenkins:${env.BUILD_ID}")
     }
 
     stage('Test image') {
@@ -29,11 +29,8 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            sh '''#!/bin/bash
-            docker login -u hoabd4 -p Hanoi@2022 docker.io
-            '''
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            // app.push("latest")
         
         }
     }
