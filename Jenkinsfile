@@ -37,5 +37,6 @@ node {
     stage('run on node2') {
         step {
             sh "docker -H ssh://jenkins@192.168.56.22 run --name='node-app' -it -p 8888:8888 hoabd4/hellonode-jenkins:19"
+        }
     }
 }
