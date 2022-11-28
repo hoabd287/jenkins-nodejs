@@ -35,7 +35,7 @@ node {
         }
     }
     stage('run on node2') {
-        sshagent(credentials:['42a93bd9-6f45-4def-ba65-c3b4f4295541']){
+        sshagent(credentials:['19e8b755-f3af-473f-be33-62c952a7d3cc']){
             sh "docker -H ssh://vagrant@192.168.56.22 run -d -p 8888:8888 --rm hoabd4/hellonode-jenkins:${env.BUILD_NUMBER}"
         }
     }
