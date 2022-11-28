@@ -35,6 +35,6 @@ node {
         }
     }
     stage('run on node2') {
-        sh "docker -H ssh://jenkins@192.168.56.22 run --name='node-app' -p 8888:8888 hoabd4/hellonode-jenkins:${env.BUILD_NUMBER}"
+        sh "docker -H ssh://vagrant@192.168.56.22 run -p 8888:8888 --rm hoabd4/hellonode-jenkins:${env.BUILD_NUMBER}"
     }
 }
