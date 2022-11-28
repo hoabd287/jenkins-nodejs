@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("node2/hellonode-jenkins:${env.BUILD_ID}")
+        app = docker.build("hoabd4/hellonode-jenkins:${env.BUILD_ID}")
     }
 
     stage('Test image') {
